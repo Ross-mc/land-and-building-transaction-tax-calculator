@@ -1,0 +1,11 @@
+{
+  "name": "land-and-buildings-transaction-tax-calculator",
+  "version": "1.0.0",
+  "description": "A command line application for calculating the Land and Buildings Transaction Tax due on a property purchased in Scotland",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ross McIntyre",
+  "license": "ISC"
+}
