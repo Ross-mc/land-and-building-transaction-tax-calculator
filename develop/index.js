@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const calculateLBBT = require('./calculateLBBT')
+const calculateLBTT = require('./calculateLBBT')
 
 const userQuestions = {
     'name': 'propertyPrice',
@@ -10,7 +10,7 @@ const userQuestions = {
 const init = () => {
     inquirer
     .prompt(userQuestions)
-    .then(answers => console.log(calculateLBBT(answers)))
+    .then(answers => console.log(calculateLBTT(answers)))
 };
 
 init();
