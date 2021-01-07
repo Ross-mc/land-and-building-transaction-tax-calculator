@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const calculateLBTT = require('./calculateLBBT')
+const calculateLBTT = require('./calculateLBTT')
 
 const userQuestions = {
     'name': 'propertyPrice',
@@ -10,7 +10,14 @@ const userQuestions = {
 const init = () => {
     inquirer
     .prompt(userQuestions)
-    .then(answers => console.log(calculateLBTT(answers)))
+    .then(answers => {
+        const returnedValue = calculateLBTT(answers);
+        if (typeof returnedValue === 'string'){
+            console.log(returnedValue)
+        } else {
+            console.log(`The total Land and Buildings Transaction Tax due on a property worth £${returnedValue.transactionValue} is £${returnedValue.totalTax}`)
+        }
+    })
 };
 
 init();

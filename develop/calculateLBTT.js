@@ -36,9 +36,10 @@ const calculateLBTT = answers => {
 
     if (parsedValue > highBand.max) totalTax += (parsedValue - highBand.max) * veryHighTax
 
-    
-
-    return `The total Land and Building Transaction Tax due on a property worth £${transactionValue} is £${totalTax}`
+    return {
+        totalTax,
+        transactionValue
+    }
 };
 
 
