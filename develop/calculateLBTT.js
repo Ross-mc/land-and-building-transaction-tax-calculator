@@ -3,8 +3,8 @@ const calculateLBTT = answers => {
     //replace to remove commas, ie 200,000 becomes 200000 and £ signs
     const transactionValue = answers.propertyPrice.replace(/,/g, '').replace('£', '');
 
-    //handle user enter non valid characters
-    if (/[\D]/.test(transactionValue)) return 'Please Enter a Number'
+    //handle user enter non valid characters - we allow a single decimal point - note this does not mutate transactionValue
+    if (/[\D]/.test(transactionValue.replace('.', ''))) return 'Please Enter a Number'
 
     let parsedValue = parseFloat(transactionValue).toFixed(2);
 
@@ -34,7 +34,9 @@ const calculateLBTT = answers => {
 
     //handle properties above bands
 
-    if (parsedValue > highBand.max) totalTax += (parsedValue - highBand.max) * veryHighTax
+    if (parsedValue > highBand.max) totalTax += (parsedValue - highBand.max) * veryHighTax;
+
+    totalTax = Math.floor(totalTax) //The tax amount is always rounded down to the nearest pound
 
     return {
         totalTax,

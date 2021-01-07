@@ -6,9 +6,10 @@
 2. [Installation Instructions](##installation-instructions)
 3. [Usage Information](##usage-information)
 4. [Contribution Information](##contribution-information)
-5. [License](##license)
-6. [GitHub Profile](##github-profile)
-7. [Email Address](##email-address)
+5. [Testing Information](##testing-information)
+6. [License](##license)
+7. [GitHub Profile](##github-profile)
+8. [Email Address](##email-address)
 
 
 ## Project Description
@@ -26,6 +27,10 @@ To run the application, run ```node index.js```
 ## Contribution Information
 
 Please contact me using the below links if you wish to contribute to this project.
+
+## Testing Information
+
+A testing suite of various potential user inputs is available and can be added to in calculateLBTT.test.js. To run tests, run command ```npm run test```
 
 ## License
 
