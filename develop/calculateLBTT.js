@@ -4,7 +4,7 @@ const calculateLBTT = answers => {
     const transactionValue = answers.propertyPrice.replace(/,/g, '').replace('£', '');
 
     //handle user enter non valid characters - we allow a single decimal point - note this does not mutate transactionValue
-    if (/[\D]/.test(transactionValue.replace('.', ''))) return 'Please Enter a Number'
+    if (/[\D]/.test(transactionValue.replace('.', ''))) return 'Please Enter a Valid Number'
 
     let parsedValue = parseFloat(transactionValue).toFixed(2);
 

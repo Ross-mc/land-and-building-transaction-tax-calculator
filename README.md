@@ -8,8 +8,7 @@
 4. [Contribution Information](##contribution-information)
 5. [Testing Information](##testing-information)
 6. [License](##license)
-7. [GitHub Profile](##github-profile)
-8. [Email Address](##email-address)
+7. [Questions](##questions])
 
 
 ## Project Description
@@ -30,19 +29,17 @@ Please contact me using the below links if you wish to contribute to this projec
 
 ## Testing Information
 
-A testing suite of various potential user inputs is available and can be added to in calculateLBTT.test.js. To run tests, run command ```npm run test```
+A testing suite of various potential user inputs is available (using jest.js) and can be added to in calculateLBTT.test.js. To run tests, run command ```npm run test```
 
 ## License
 
 This application is published under ISC license.
 
-## GitHub Profile
+## Questions
+
+To contact me with questions: 
 
 Visit my [Github Profile](https://github.com/ross-mc)
-
-## Email Address
-
-[Contact me](mailto:rossmci90@hotmail.co.uk)
-
+Contact me via [email](mailto:rossmci90@hotmail.co.uk)
 
 
