@@ -6,12 +6,12 @@ const calculateLBTT = answers => {
     //handle user enter non valid characters - we allow a single decimal point - note this does not mutate transactionValue
     if (/[\D]/.test(transactionValue.replace('.', ''))) return 'Please Enter a Valid Number'
 
-    let parsedValue = parseFloat(transactionValue).toFixed(2);
+    let parsedValue = parseFloat(Number(transactionValue).toFixed(2));
 
     const Band = function(min, max, taxRate){
-        this.min = min,
-        this.max = max,
-        this.taxRate = taxRate
+        this.min = min;
+        this.max = max;
+        this.taxRate = taxRate;
     }
 
     const nilBand = new Band(0, 145000, 0);
@@ -23,14 +23,15 @@ const calculateLBTT = answers => {
 
     const bands = [nilBand, lowBand, midBand, highBand];
     //remove bands that are less than the value of the property
-    const validBands = bands.filter(band => band.min < parsedValue)
+    const applicableBands = bands.filter(band => band.min < parsedValue)
 
-    let totalTax = 0;
-
-    validBands.forEach(band => {
-        //if the property is worth more than the band max, we tax the whole range of the band, else we tax the remaining balance
-        parsedValue > band.max ? totalTax += (band.max - band.min) * band.taxRate : totalTax += (parsedValue - band.min) * band.taxRate;
-    });
+    let totalTax = applicableBands.reduce(
+        (acc, { max, min, taxRate }) =>
+          parsedValue > max
+            ? acc + (max - min) * taxRate
+            : acc + (parsedValue - min) * taxRate,
+        0
+      ); //if the property is worth more than the band max, we tax the whole range of the band, else we tax the remaining , accumulating the value 
 
     //handle properties above bands
 
