@@ -6,7 +6,7 @@ const calculateLBTT = answers => {
     //handle user enter non valid characters - we allow a single decimal point - note this does not mutate transactionValue
     if (/[\D]/.test(transactionValue.replace('.', ''))) return 'Please Enter a Valid Number'
 
-    let parsedValue = parseFloat(Number(transactionValue).toFixed(2));
+    const parsedValue = parseFloat(Number(transactionValue).toFixed(2));
 
     const Band = function(min, max, taxRate){
         this.min = min;
